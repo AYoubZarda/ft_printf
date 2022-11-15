@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:00:14 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/15 21:49:03 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/15 21:55:58 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 #include <limits.h>
 #include <stdio.h>
 
+int ft_printf(const char *format, ...);
 int ft_putchar(char c);
 int	ft_putnbr(int n);
+char	ft_putstr(char *s);
 
 #endif
