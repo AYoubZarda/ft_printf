@@ -6,11 +6,11 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:06:04 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/15 12:41:28 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/15 15:55:50 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 int ft_putchar(char c)
 {

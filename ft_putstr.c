@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:00:14 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/15 15:54:07 by azarda           ###   ########.fr       */
+/*   Created: 2022/11/15 16:29:32 by azarda            #+#    #+#             */
+/*   Updated: 2022/11/15 16:32:40 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-#define PRINTF_H
+#include "ft_printf.h"
 
-#include <stdarg.h>
-#include <unistd.h>
-#include <limits.h>
-int ft_putchar(char c);
-int	ft_putnbr(int n);
+int	ft_strlen(const char *s)
+{
+	int	i;
 
-#endif
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+
+char	ft_putstr(char *s)
+{
+	int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+		write(1, &s[i++], 1);
+    return (ft_strlen(s));
+}
