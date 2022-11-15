@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 16:50:54 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/14 23:10:31 by azarda           ###   ########.fr       */
+/*   Created: 2022/11/15 12:00:14 by azarda            #+#    #+#             */
+/*   Updated: 2022/11/15 12:03:02 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PRINTF_H
+# define PRINTF_H
+
 #include <stdarg.h>
-#include <stdio.h>
 
-int print_format(const char *format, va_list ptr)
-{
-	int i;
 
-	i = 0;
-	while (format[i])
-}
 
-int ft_printf(const char *format, ...)
-{
-	va_list ptr;
-	int k;
 
-	va_start(ptr, format);
-	k = print_format(format, ptr);
-}
+
+
+#endif
