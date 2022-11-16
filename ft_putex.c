@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 19:33:19 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 23:51:56 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int	ft_calcul(unsigned long nb)
 int	ft_putex(unsigned long nb)
 {
 	unsigned long	n;
+	char hexa[] = "0123456789abcdef";
 
 	n = nb;
 	if (n >= 16)
 		ft_putex(n / 16);
-	ft_putchar("0123456789abcdef"[n % 16]);
+	ft_putchar(hexa[n % 16]);
 	return (ft_calcul(nb));
 
 }
@@ -45,11 +46,12 @@ int	ft_putex(unsigned long nb)
 int ft_puteXa(unsigned long  nb)
 {
 	unsigned long	n;
+	char hexa[] = "0123456789ABCDEF";
 
 	n = nb;
 	if (n >= 16)
-		ft_putex(n / 16);
-	ft_putchar("0123456789ABCDEF"[n % 16]);
+		ft_puteXa(n / 16);
+	ft_putchar(hexa[n % 16]);
 	return (ft_calcul(nb));
 }
 
