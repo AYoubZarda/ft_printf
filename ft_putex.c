@@ -6,44 +6,71 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 14:18:41 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 19:33:19 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putex(unsigned int nb, char *ba, int *f)
+int	ft_calcul(unsigned long nb)
 {
-	
-	// if (nb > 9 && nb <= 15)
-	// {
-	// 	ft_putchar(nb + 'a' - 10);
-	// }	
-    // if (nb >= 0 && nb <= 9)
-	// {
-    //     ft_putchar(nb + '0');
-	// }
-	if (nb >= 16)
+	int	len;
+
+	len = 0;
+	if (nb <= 0)
 	{
-		ft_putex(nb / 16, ba, f);
-		ft_putex(nb % 16, ba, f);	
+		nb *= -1;
+		len++;
 	}
-	else
+	while (nb != 0)
 	{
-		
-		write(1, &ba[nb], 1);
-		f++;
+		nb /= 16;
+		len++;
 	}
+	return (len);
 }
-void	ft_putptr(unsigned long int p, int *f)
+
+int	ft_putex(unsigned long nb)
 {
-	*f = 2;
+	unsigned long	n;
+
+	n = nb;
+	if (n >= 16)
+		ft_putex(n / 16);
+	ft_putchar("0123456789abcdef"[n % 16]);
+	return (ft_calcul(nb));
+
+}
+
+int ft_puteXa(unsigned long  nb)
+{
+	unsigned long	n;
+
+	n = nb;
+	if (n >= 16)
+		ft_putex(n / 16);
+	ft_putchar("0123456789ABCDEF"[n % 16]);
+	return (ft_calcul(nb));
+}
+
+int	ft_putptr(unsigned long nbr)
+{
+	int	ret;
+
 	ft_putstr("0x");
-	ft_putex(p, "0123456789abcdef", f);
+	ret = ft_putex(nbr) + 2;
+	return (ret);
 }
+
+// void	ft_putptr(unsigned long int p, int *f)
+// {
+// 	*f = 2;
+// 	ft_putstr("0x");
+// 	ft_putex(p, "0123456789abcdef", f);
+// }
 
 // int main ()
 // {
-//     ft_putex(-5, "0123456789ABCDEF", 0);
+//     ft_puteXa(-5);
 // 	printf("\n%X\n",-5);
 // }

@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 14:19:50 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 21:47:48 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,25 @@ int	check_format(const char *format, va_list pt)
 
 	ret = 0;
 	i = 0;
-	while (format[i])
-	{
+	
+	// while (format[i])
 		if (format[i] == '%' && format[i + 1] == 'c')
 			ret += ft_putchar(va_arg(pt, int));
 		else if (format[i] == '%' && format[i + 1] == 's')
 			ret += ft_putstr(va_arg(pt, char *));
-		 else if (format[i] == '%' && format[i + 1] == 'p')
-		 	ft_putptr(va_arg(pt, unsigned long int), &ret);
-		// {
-		// ft_putstr("0x");
-		// ft_putex(format[i], "0123456789abcdef", &ret);
-		// }
-		i++;
-	}
-	
-	
+		else if (format[i] == '%' && format[i + 1] == 'x')
+			ret += ft_putex(va_arg(pt, unsigned long));
+		else if (format[i] == '%' && format[i + 1] == 'X')
+			ret += ft_puteXa(va_arg(pt, unsigned long));
+		else if (format[i] == '%' && format[i + 1] == 'p')
+				ft_putptr(va_arg(pt, unsigned long int));
+		else if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+			ret += ft_putnbr(va_arg(pt, int));
+		//d
+		else if(format[i + 1] == '%')
+			ret += ft_putchar('%');
+		else if(format[i] != '%')
+			ret += ft_putchar(format[i]);
 	return (ret);
 }
 
@@ -65,13 +68,20 @@ int ft_printf(const char *format, ...)
 	int k = 0;
 
 	va_start(pt, format);
+	if(*format != '%')
+		ft_putchar(*format);
 	k = check_format(format, pt);
+
 	va_end(pt);
 	return (k);
 }
 int main()
 {
-	int	i = 0;
-	ft_printf("%p", &i);
-	printf("\n%p", &i);
+	// int f;
+	int	i;
+	int j;
+	i = ft_printf("gdd");
+	j = printf("\ngdd\n");
+	
+	printf("i = %d     j = %d", i, j);
 }
