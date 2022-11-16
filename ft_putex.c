@@ -6,18 +6,11 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 10:49:18 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 10:57:22 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-// put_nbr_base(123, 10, "0123456789abcdef")
-
-// void put_nbr_base(long long n, int nbr_base, char *base)
-// {
-	
-// }
 
 void	ft_putex(unsigned int nb, char *ba, int *f)
 {
@@ -41,6 +34,12 @@ void	ft_putex(unsigned int nb, char *ba, int *f)
 		write(1, &ba[nb], 1);
 		f++;
 	}
+}
+void	ft_putptr(unsigned long int p, int *f)
+{
+	*f = 2;
+	ft_putstr("0x");
+	ft_putex(p, "0123456789abcdef", f);
 }
 
 int main ()
