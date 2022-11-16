@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:00:14 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 11:44:01 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 14:16:17 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	ft_putnbr(int n);
 int	ft_strlen(const char *s);
 char	ft_putstr(char *s);
 void	ft_putex(unsigned int nb, char *ba, int *f);
-void	ft_putptr(unsigned long int p, int *f);
+ void	ft_putptr(unsigned long int p, int *f);
 
 #endif

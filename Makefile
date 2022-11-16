@@ -6,7 +6,7 @@
 #    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 21:51:15 by azarda            #+#    #+#              #
-#    Updated: 2022/11/15 21:54:42 by azarda           ###   ########.fr        #
+#    Updated: 2022/11/16 14:13:25 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS =		ft_printf.c\
 			ft_putchar.c\
 			ft_putnbr.c\
 			ft_putstr.c\
+			ft_putex.c\
 
 OBJS = $(SRCS:.c=.o)
 

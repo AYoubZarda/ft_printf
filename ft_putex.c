@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/16 10:57:22 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/16 14:18:41 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_putptr(unsigned long int p, int *f)
 	ft_putex(p, "0123456789abcdef", f);
 }
 
-int main ()
-{
-    ft_putex(-5, "0123456789ABCDEF", 0);
-	printf("\n%X\n",-5);
-}
+// int main ()
+// {
+//     ft_putex(-5, "0123456789ABCDEF", 0);
+// 	printf("\n%X\n",-5);
+// }
