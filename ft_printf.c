@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 00:24:20 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 00:38:32 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,6 @@ int check_format(const char *format, va_list pt, int i, int ret)
 	}
 	return (ret);
 }
-
-// int print_format(const char *format, va_list pt)
-// {
-// 	int	i;
-// 	int	ret;
-// 	int	j;
-
-// 	j = 0;
-// 	// while (format[i])
-// 	// {
-// 		ret = check_format(format, pt);
-// 	// 	if (i == -1)
-// 	// 		return (j);
-// 	// 	j += i;
-// 	// 	if (*format == '%')
-// 	// 		format++;
-// 	// 	format++;
-// 	// }
-// 	return (j);
-// }
 
 int ft_printf(const char *format, ...)
 {
