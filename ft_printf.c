@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 16:11:21 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 20:51:30 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	check_format(const char *format, va_list pt, int i, int ret)
 		else if (format[i - 1] == '%' && format[i] == 's')
 			ret += ft_putstr(va_arg(pt, char *));
 		else if (format[i - 1] == '%' && format[i] == 'x')
-			ret += ft_putex(va_arg(pt, long));
+			ret += ft_putex(va_arg(pt, unsigned int));
 		else if (format[i - 1] == '%' && format[i] == 'X')
-			ret += ft_putexxa(va_arg(pt, long));
+			ret += ft_putexxa(va_arg(pt, unsigned int));
 		else if (format[i - 1] == '%' && format[i] == 'p')
 			ret += ft_putptr(va_arg(pt, unsigned long int));
 		else if (format[i - 1] == '%' && format[i] == 'd')
@@ -32,7 +32,7 @@ int	check_format(const char *format, va_list pt, int i, int ret)
 			ret += ft_putnbr(va_arg(pt, int));
 		else if (format[i - 1] == '%' && format[i] == 'u')
 			ret += ft_putnbru(va_arg(pt, unsigned int));
-		else if (format[i] == '%' && format[i + 1] == '%')
+		else if (format[i - 1] == '%' && format[i] == '%')
 			ret += ft_putchar('%');
 		else if (format[i] != '%')
 			ret += ft_putchar(format[i]);
@@ -61,7 +61,7 @@ int	ft_printf(const char *format, ...)
 // {
 // 	int i;
 // 	int j;
-// 	i = ft_printf("%p %p\n", 0, 0);
-// 	j = printf("%p %p\n", 0, 0);
+// 	i = ft_printf("%%%%\n");
+// 	j = printf("%%%%\n");
 // 	printf("i = %d     j = %d", i, j);
 // }
