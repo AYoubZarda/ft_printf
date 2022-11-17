@@ -6,14 +6,14 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:06:04 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/15 15:55:50 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 10:35:28 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar(char c)
+int	ft_putchar(char c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }

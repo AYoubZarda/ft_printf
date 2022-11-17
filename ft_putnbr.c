@@ -6,17 +6,16 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:17:38 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 00:38:54 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 10:47:47 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-static int ft_calcul(int nb)
+static int	ft_calcul(int nb)
 {
 	int	c;
-	
+
 	c = 0;
 	if (nb < 0)
 	{
@@ -48,6 +47,20 @@ int	ft_putnbr(int nbr)
 	n /= 10;
 	if (n != 0)
 		ft_putnbr(n);
+	ft_putchar(rest);
+	return (ft_calcul(nbr));
+}
+
+int	ft_putnbru(unsigned int nbr)
+{
+	unsigned int	rest;
+	unsigned int	n;
+
+	n = nbr;
+	rest = n % 10 + '0';
+	n /= 10;
+	if (n != 0)
+		ft_putnbru(n);
 	ft_putchar(rest);
 	return (ft_calcul(nbr));
 }
