@@ -6,22 +6,24 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 10:45:42 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 16:14:15 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_calcul(unsigned long nb)
+int	ft_calcul(long nb)
 {
 	int	len;
 
 	len = 0;
-	if (nb <= 0)
+	if (nb < 0)
 	{
 		nb *= -1;
 		len++;
 	}
+	if (nb == 0)
+		return (1);
 	while (nb != 0)
 	{
 		nb /= 16;
@@ -30,9 +32,9 @@ int	ft_calcul(unsigned long nb)
 	return (len);
 }
 
-int	ft_putex(unsigned long nb)
+int	ft_putex(long nb)
 {
-	unsigned long	n;
+	long	n;
 	char			*hexa;
 
 	hexa = "0123456789abcdef";
@@ -43,9 +45,9 @@ int	ft_putex(unsigned long nb)
 	return (ft_calcul(nb));
 }
 
-int	ft_putexxa(unsigned long nb)
+int	ft_putexxa(long nb)
 {
-	unsigned long	n;
+	long	n;
 	char			*hexa;
 
 	hexa = "0123456789ABCDEF";
@@ -58,11 +60,9 @@ int	ft_putexxa(unsigned long nb)
 
 int	ft_putptr(unsigned long nbr)
 {
-	int	ret;
-
 	ft_putstr("0x");
-	ret = ft_putex(nbr) + 2;
-	return (ret);
+	ft_putex(nbr);
+	return (ft_calcul(nbr) + 2);
 }
 
 // int main ()

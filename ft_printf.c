@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 10:50:52 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/17 16:11:21 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	check_format(const char *format, va_list pt, int i, int ret)
 		else if (format[i - 1] == '%' && format[i] == 's')
 			ret += ft_putstr(va_arg(pt, char *));
 		else if (format[i - 1] == '%' && format[i] == 'x')
-			ret += ft_putex(va_arg(pt, unsigned long));
+			ret += ft_putex(va_arg(pt, long));
 		else if (format[i - 1] == '%' && format[i] == 'X')
-			ret += ft_putexxa(va_arg(pt, unsigned long));
+			ret += ft_putexxa(va_arg(pt, long));
 		else if (format[i - 1] == '%' && format[i] == 'p')
 			ret += ft_putptr(va_arg(pt, unsigned long int));
 		else if (format[i - 1] == '%' && format[i] == 'd')
@@ -61,7 +61,7 @@ int	ft_printf(const char *format, ...)
 // {
 // 	int i;
 // 	int j;
-// 	i = ft_printf("%s\n", NULL);
-// 	j = printf("%s\n", NULL);
+// 	i = ft_printf("%p %p\n", 0, 0);
+// 	j = printf("%p %p\n", 0, 0);
 // 	printf("i = %d     j = %d", i, j);
 // }
