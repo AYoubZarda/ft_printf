@@ -6,15 +6,15 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:17:38 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 16:03:05 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 14:49:16 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int ft_calcul(long int nb)
+static	int	ft_calcul(long int nb)
 {
-	int c;
+	int	c;
 
 	c = 0;
 	if (nb < 0)
@@ -32,10 +32,10 @@ static int ft_calcul(long int nb)
 	return (c);
 }
 
-int ft_putnbr(int nbr)
+int	ft_putnbr(int nbr)
 {
-	long int rest;
-	long int n;
+	long int	rest;
+	long int	n;
 
 	n = (long int)nbr;
 	if (n < 0)
@@ -51,10 +51,10 @@ int ft_putnbr(int nbr)
 	return (ft_calcul(nbr));
 }
 
-int ft_putnbru(unsigned int nbr)
+int	ft_putnbru(unsigned int nbr)
 {
-	unsigned int rest;
-	unsigned int n;
+	unsigned int	rest;
+	unsigned int	n;
 
 	n = nbr;
 	rest = n % 10 + '0';

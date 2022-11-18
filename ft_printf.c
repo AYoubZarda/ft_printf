@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 12:54:30 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 14:48:06 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,38 +30,39 @@ int	check_format(char format, va_list count)
 	else if (format == 'X')
 		n += ft_putexxa(va_arg(count, unsigned int));
 	else if (format == 'p')
-		n += ft_putptr(va_arg(count,  unsigned long ));
+		n += ft_putptr(va_arg(count, long));
 	else if (format == '%')
 		n += ft_putchar('%');
 	return (n);
 }
 
-int	ft_printf(const char *str, ...)
+int	ft_printf(const char *s, ...)
 {
 	int		len;
 	va_list	ptr;
 
 	len = 0;
-	va_start(ptr, str);
-	while (*str)
+	va_start(ptr, s);
+	while (*s)
 	{
-		if (*str == '%')
+		if (*s == '%')
 		{
-			str++;
-			if (*str == 'c' || *str == 's' || *str == 'p' \
-					|| *str == 'd' || *str == 'i' || *str == 'u' \
-						|| *str == 'x' || *str == 'X' || *str == '%')
-				len += check_format(*str, ptr);
+			s++;
+			if (*s == 'c' || *s == 's' || *s == 'p' \
+					|| *s == 'd' || *s == 'i' || *s == 'u' \
+						|| *s == 'x' || *s == 'X' || *s == '%')
+				len += check_format(*s, ptr);
 		}
 		else
-			len += ft_putchar(*str);
-		str++;
+			len += ft_putchar(*s);
+		s++;
 	}
 	va_end(ptr);
 	return (len);
 }
 // int main()
 // {
+// 	int f ;
 // 	int i = 0;
 // 	int j = 0;
 // 	j = ft_printf("%p\n", LONG_MIN);
