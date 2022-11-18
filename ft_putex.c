@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 14:49:55 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:11:53 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static long	ft_calcul(long long int nb)
 	if (nb < 0)
 	{
 		nb *= -1;
-		len++;
 	}
 	if (nb == 0)
 		return (1);
@@ -32,22 +31,24 @@ static long	ft_calcul(long long int nb)
 	return (len);
 }
 
-int	ft_putex(unsigned long nb)
+int	ft_putex(unsigned long int nb)
 {
-	unsigned long	n;
+	unsigned long	int n;
+	int i;
 	char			*hexa;
 
+	i = 0;
 	hexa = "0123456789abcdef";
 	n = nb;
 	if (n >= 16)
-		ft_putex(n / 16);
-	ft_putchar(hexa[n % 16]);
-	return (ft_calcul(nb));
+		i += ft_putex(n / 16);
+	i += ft_putchar(hexa[n % 16]);
+	return (i);
 }
 
-int	ft_putexxa(unsigned long nb)
+int	ft_putexxa(unsigned long int nb)
 {
-	unsigned long	n;
+	unsigned long int n;
 	char			*hexa;
 
 	hexa = "0123456789ABCDEF";
@@ -58,13 +59,10 @@ int	ft_putexxa(unsigned long nb)
 	return (ft_calcul(nb));
 }
 
-long	ft_putptr(long nbr)
+int	ft_putptr(unsigned long nbr)
 {
-	long	c;
+	int	c;
 
-	c = 0;
-	if (nbr < 0)
-		c -= 1;
 	ft_putstr("0x");
 	c = (ft_putex(nbr) + 2);
 	return (c);
