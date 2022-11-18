@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 20:31:05 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 10:56:19 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_calcul(long long int nb)
 
 int	ft_putex(unsigned long nb)
 {
-	long	n;
+	unsigned long	n;
 	char	*hexa;
 
 	hexa = "0123456789abcdef";
@@ -47,7 +47,7 @@ int	ft_putex(unsigned long nb)
 
 int	ft_putexxa(unsigned long nb)
 {
-	long	n;
+	unsigned long	n;
 	char	*hexa;
 
 	hexa = "0123456789ABCDEF";
@@ -60,15 +60,10 @@ int	ft_putexxa(unsigned long nb)
 
 int	ft_putptr(unsigned long nbr)
 {
-	long int	ret;
+	int	ret;
 
 	ft_putstr("0x");
 	ret = ft_putex(nbr) + 2;
 	return (ret);
 }
 
-// int main ()
-// {
-//     ft_puteXa(-5);
-// 	printf("\n%X\n",-5);
-// }

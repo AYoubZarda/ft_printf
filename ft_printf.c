@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 20:51:30 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 10:53:31 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_format(const char *format, va_list pt, int i, int ret)
 		else if (format[i - 1] == '%' && format[i] == 'X')
 			ret += ft_putexxa(va_arg(pt, unsigned int));
 		else if (format[i - 1] == '%' && format[i] == 'p')
-			ret += ft_putptr(va_arg(pt, unsigned long int));
+			ret += ft_putptr(va_arg(pt, unsigned long ));
 		else if (format[i - 1] == '%' && format[i] == 'd')
 			ret += ft_putnbr(va_arg(pt, int));
 		else if (format[i - 1] == '%' && format[i] == 'i')
@@ -57,11 +57,11 @@ int	ft_printf(const char *format, ...)
 	return (ret);
 }
 
-// int main()
-// {
-// 	int i;
-// 	int j;
-// 	i = ft_printf("%%%%\n");
-// 	j = printf("%%%%\n");
-// 	printf("i = %d     j = %d", i, j);
-// }
+int main()
+{
+	int i;
+	int j;
+	ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
+	printf(" %p %p \n", LONG_MIN, LONG_MAX);
+	printf("i = %d     j = %d", i, j);
+}
