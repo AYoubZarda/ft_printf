@@ -6,62 +6,65 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 10:53:31 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 12:54:30 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	check_format(const char *format, va_list pt, int i, int ret)
+int	check_format(char format, va_list count)
 {
-	while (format[i])
+	int	n;
+
+	n = 0;
+	if (format == 'c')
+		n += ft_putchar(va_arg(count, int));
+	else if (format == 's')
+		n += ft_putstr(va_arg(count, char *));
+	else if (format == 'd' || format == 'i')
+		n += ft_putnbr(va_arg(count, int));
+	else if (format == 'u')
+		n += ft_putnbru(va_arg(count, unsigned int));
+	else if (format == 'x')
+		n += ft_putex(va_arg(count, unsigned int));
+	else if (format == 'X')
+		n += ft_putexxa(va_arg(count, unsigned int));
+	else if (format == 'p')
+		n += ft_putptr(va_arg(count,  unsigned long ));
+	else if (format == '%')
+		n += ft_putchar('%');
+	return (n);
+}
+
+int	ft_printf(const char *str, ...)
+{
+	int		len;
+	va_list	ptr;
+
+	len = 0;
+	va_start(ptr, str);
+	while (*str)
 	{
-		if (format[i - 1] == '%' && format[i] == 'c')
-			ret += ft_putchar(va_arg(pt, int));
-		else if (format[i - 1] == '%' && format[i] == 's')
-			ret += ft_putstr(va_arg(pt, char *));
-		else if (format[i - 1] == '%' && format[i] == 'x')
-			ret += ft_putex(va_arg(pt, unsigned int));
-		else if (format[i - 1] == '%' && format[i] == 'X')
-			ret += ft_putexxa(va_arg(pt, unsigned int));
-		else if (format[i - 1] == '%' && format[i] == 'p')
-			ret += ft_putptr(va_arg(pt, unsigned long ));
-		else if (format[i - 1] == '%' && format[i] == 'd')
-			ret += ft_putnbr(va_arg(pt, int));
-		else if (format[i - 1] == '%' && format[i] == 'i')
-			ret += ft_putnbr(va_arg(pt, int));
-		else if (format[i - 1] == '%' && format[i] == 'u')
-			ret += ft_putnbru(va_arg(pt, unsigned int));
-		else if (format[i - 1] == '%' && format[i] == '%')
-			ret += ft_putchar('%');
-		else if (format[i] != '%')
-			ret += ft_putchar(format[i]);
-		i++;
+		if (*str == '%')
+		{
+			str++;
+			if (*str == 'c' || *str == 's' || *str == 'p' \
+					|| *str == 'd' || *str == 'i' || *str == 'u' \
+						|| *str == 'x' || *str == 'X' || *str == '%')
+				len += check_format(*str, ptr);
+		}
+		else
+			len += ft_putchar(*str);
+		str++;
 	}
-	return (ret);
+	va_end(ptr);
+	return (len);
 }
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	pt;
-	int		ret;
-	int		x;
-	int		i;
-
-	i = 0;
-	x = 0;
-	ret = 0;
-	va_start(pt, format);
-	ret = check_format(format, pt, i, x);
-	va_end(pt);
-	return (ret);
-}
-
-int main()
-{
-	int i;
-	int j;
-	ft_printf(" %p %p \n", LONG_MIN, LONG_MAX);
-	printf(" %p %p \n", LONG_MIN, LONG_MAX);
-	printf("i = %d     j = %d", i, j);
-}
+// int main()
+// {
+// 	int i = 0;
+// 	int j = 0;
+// 	j = ft_printf("%p\n", LONG_MIN);
+// 	i = printf("%p\n", LONG_MIN);
+// 	printf("i = %d     j = %d", i, j);
+// }

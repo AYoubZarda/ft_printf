@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:00:14 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 10:56:26 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 12:45:25 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int		ft_strlen(const char *s);
 int		ft_putstr(char *s);
 int		ft_putex(unsigned long nb);
 int		ft_putexxa(unsigned long nb);
-int		ft_putptr(unsigned long int nbr);
+long		ft_putptr(   unsigned long nbr);
 
-#endif
+#endif 

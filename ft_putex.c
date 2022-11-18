@@ -6,13 +6,13 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:37:24 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 10:56:19 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 12:52:42 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_calcul(long long int nb)
+static long	ft_calcul(long long int nb)
 {
 	int	len;
 
@@ -58,12 +58,13 @@ int	ft_putexxa(unsigned long nb)
 	return (ft_calcul(nb));
 }
 
-int	ft_putptr(unsigned long nbr)
+long	ft_putptr( unsigned long nbr)
 {
-	int	ret;
-
+	long c;
+	c = 0;
+	if (nbr < 0)
+		c += 1;
 	ft_putstr("0x");
-	ret = ft_putex(nbr) + 2;
-	return (ret);
+	c = (ft_putex(nbr) + 2);
+	return (c); 
 }
-
