@@ -6,61 +6,48 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:17:38 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 14:49:16 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:36:50 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	ft_calcul(long int nb)
+int	ft_putnbr(int n)
 {
-	int	c;
+	int	i;
 
-	c = 0;
-	if (nb < 0)
+	i = 0;
+	if (n == -2147483648)
 	{
-		c++;
-		nb *= -1;
+		i += ft_putchar('-');
+		i += ft_putchar('2');
+		n = 147483648;
 	}
-	if (nb == 0)
-		c++;
-	while (nb > 0)
-	{
-		nb = nb / 10;
-		c++;
-	}
-	return (c);
-}
-
-int	ft_putnbr(int nbr)
-{
-	long int	rest;
-	long int	n;
-
-	n = (long int)nbr;
 	if (n < 0)
 	{
-		n *= -1;
-		ft_putchar('-');
+		i += ft_putchar('-');
+		n = n * -1;
 	}
-	rest = n % 10 + '0';
-	n /= 10;
-	if (n != 0)
-		ft_putnbr(n);
-	ft_putchar(rest);
-	return (ft_calcul(nbr));
+	if (n <= 9)
+		i = i + ft_putchar(n + '0');
+	if (n >= 10)
+	{
+		i += ft_putnbr(n / 10);
+		i += ft_putnbr(n % 10);
+	}
+	return (i);
 }
 
 int	ft_putnbru(unsigned int nbr)
 {
 	unsigned int	rest;
-	unsigned int	n;
+	int				i;
 
-	n = nbr;
-	rest = n % 10 + '0';
-	n /= 10;
-	if (n != 0)
-		ft_putnbru(n);
-	ft_putchar(rest);
-	return (ft_calcul(nbr));
+	i = 0;
+	rest = nbr % 10 + '0';
+	nbr /= 10;
+	if (nbr != 0)
+		i += ft_putnbru(nbr);
+	i += ft_putchar(rest);
+	return (i);
 }
