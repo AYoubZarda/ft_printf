@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:04:18 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/18 18:12:33 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/18 18:42:30 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,3 @@ int	ft_printf(const char *s, ...)
 	va_end(ptr);
 	return (len);
 }
-// int main()
-// {
-// 	int f ;
-// 	int i = 0;
-// 	int j = 0;
-// 	j = ft_printf("%p\n", ULONG_MAX);
-// 	i = printf("%p\n", ULONG_MAX);
-// 	printf("i = %d     j = %d", i, j);
-// 	// i = ft_putptr(ULONG_MAX);
-// 	// printf("%d", i);
-// }

@@ -6,7 +6,7 @@
 #    By: azarda <azarda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/15 21:51:15 by azarda            #+#    #+#              #
-#    Updated: 2022/11/16 14:13:25 by azarda           ###   ########.fr        #
+#    Updated: 2022/11/18 18:43:54 by azarda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
-AR = @ar -rsc
+AR = ar -rc
 
 SRCS =		ft_printf.c\
 			ft_putchar.c\
