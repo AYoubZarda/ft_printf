@@ -6,7 +6,7 @@
 /*   By: azarda <azarda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:29:32 by azarda            #+#    #+#             */
-/*   Updated: 2022/11/17 18:40:46 by azarda           ###   ########.fr       */
+/*   Updated: 2022/11/21 19:03:18 by azarda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ int	ft_putstr(char *s)
 		return (6);
 	}
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 		write(1, &s[i++], 1);
 	return (i);
